@@ -12,5 +12,4 @@ export async function GET(){
     } catch (error) {
         return NextResponse.json({msg : "読み込み失敗"});
     }
-    
 }
