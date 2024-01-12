@@ -1,5 +1,4 @@
 // app/api/item/readsingle/[id]/route.js
-// app/api/item/readall/route.js
 
 import { NextResponse } from "next/server";
 import connectDB from "@/app/utils/database";
