@@ -5,9 +5,7 @@ import { NextResponse } from "next/server";
 
 export async function middleware(request){
 
-    const token = "eyJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InVzZXIxQHNhbXBsZS5jb20iLCJleHAiOjE3MDUzODIxODV9.sOj5R29bIa_rrzpyctbfX9zVgX4OYrwsAysBikk_Nkg";
-
-    // const token = await request.headers.get("Authorization")?.split(" ")[1];
+    const token = await request.headers.get("Authorization")?.split(" ")[1];
 
     if(!token){
         return NextResponse.json({msg: "tokenが見つかりません"});
