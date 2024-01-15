@@ -12,6 +12,7 @@ export async function POST(request){
         const savedUserData = await UserModel.findOne({email: reqBody.email});
         if(savedUserData){
             if(reqBody.password === savedUserData.password){
+
                 return NextResponse.json({msg : "ログイン成功"});
             }else{
                 return NextResponse.json({msg : "パスワードが違います"});
