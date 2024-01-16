@@ -3,6 +3,7 @@
 "use client"
 
 import { useState } from "react";
+import useAuth from "@/app/utils/useAuth";
 
 const CreateItem = () => {
 
@@ -10,6 +11,7 @@ const CreateItem = () => {
     const [price, setPrice] = useState("");
     const [image, setImage] = useState("");
     const [description, setDesc] = useState("");
+    const loginUserEmail = useAuth()
 
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -26,7 +28,7 @@ const CreateItem = () => {
                         price: price,
                         image: image,
                         description: description,
-                        email: "dummy"
+                        email: loginUserEmail
                     })
                 });
             const jsonData = await response.json();
@@ -37,6 +39,7 @@ const CreateItem = () => {
         }
     }
 
+    if(loginUserEmail){
     return(
         <div>
             <h1>アイテム作成</h1>
@@ -72,7 +75,7 @@ const CreateItem = () => {
                 <button>作成</button>
             </form>
         </div>
-    )
+    )}
 }
 
 export default CreateItem;
