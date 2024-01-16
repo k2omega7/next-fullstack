@@ -23,6 +23,7 @@ const Login = () => {
                 })
             });
             const jsonData = await response.json();
+            localStorage.setItem("token", jsonData.token);
             alert(jsonData.msg);
         } catch (error) {
             alert("ユーザ登録失敗");
@@ -32,7 +33,7 @@ const Login = () => {
 
     return(
         <div>
-            <h1>ユーザ登録</h1>
+            <h1>ログイン</h1>
             <form onSubmit={handleSubmit}>
                 <input
                     value={email}
