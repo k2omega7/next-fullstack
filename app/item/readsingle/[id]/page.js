@@ -1,5 +1,6 @@
 // app/item/readsingle/[id]/page.js
 
+import Link from "next/link";
 import Image from "next/image";
 
 const getSingleItem = async(id) => {
@@ -22,6 +23,11 @@ const ReadSingleItem = async(context) => {
                 <h2>{singleItem.price}</h2>
                 <hr/>
                 <p>{singleItem.description}</p>
+                <div>
+                    <Link href={`/item/update/${singleItem._id}`}>アイテム編集</Link>
+                    <br/>
+                    <Link href={`/item/delete/${singleItem._id}`}>アイテム削除</Link>
+                </div>
             </div>
         </div>
     );
